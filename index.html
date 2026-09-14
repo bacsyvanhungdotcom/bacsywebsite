@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phòng Khám Phụ Sản - BSCKII Nguyễn Văn Hùng | Long Xuyên</title>
-    <!-- Font Awesome cho icon liên hệ -->
+    <title>Phòng Khám Phụ Sản - BSCKII Nguyễn Văn Hùng | Long Xuyên, An Giang</title>
+    
+    <!-- Meta SEO chuẩn y tế địa phương -->
+    <meta name="description" content="Phòng khám Phụ sản Long Xuyên - BSCKII Nguyễn Văn Hùng với hơn 20 năm kinh nghiệm. Chuyên khám thai định kỳ, siêu âm màu kỹ thuật cao 2D/3D/4D/Doppler, điều trị bệnh phụ khoa và kế hoạch hóa gia đình an toàn tại Long Xuyên, An Giang. Hotline: 0868 452 999.">
+    <meta name="keywords" content="phòng khám phụ sản long xuyên, bác sĩ văn hùng, khám thai long xuyên, siêu âm thai an giang, khám phụ khoa long xuyên, bsck2 nguyễn văn hùng">
+    <meta name="author" content="BSCKII Nguyễn Văn Hùng">
+
+    <!-- Font Awesome cho icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
         :root {
             --primary: #008080;        /* Xanh mòng két y tế */
             --primary-dark: #005f5f;
             --primary-light: #e6f7f7;
-            --secondary: #0d6efd;      /* Xanh dương */
+            --secondary: #0d6efd;
             --text-main: #2d3748;
             --text-muted: #64748b;
             --bg-light: #f8fafc;
@@ -28,7 +35,7 @@
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.65;
             background-color: var(--bg-light);
             color: var(--text-main);
         }
@@ -105,6 +112,8 @@
             font-size: 1.05rem;
             color: #4a5568;
             line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: justify;
         }
 
         /* LƯỚI DỊCH VỤ */
@@ -132,7 +141,7 @@
         .service-item h3 {
             color: var(--primary-dark);
             font-size: 1.15rem;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -144,7 +153,7 @@
 
         .service-item ul li {
             position: relative;
-            padding-left: 18px;
+            padding-left: 20px;
             margin-bottom: 8px;
             font-size: 0.95rem;
             color: #4a5568;
@@ -155,6 +164,7 @@
             position: absolute;
             left: 0;
             color: var(--primary);
+            font-weight: bold;
             font-size: 0.85rem;
         }
 
@@ -166,17 +176,17 @@
         }
 
         .contact-box p {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             font-size: 1rem;
             display: flex;
             align-items: flex-start;
-            gap: 10px;
+            gap: 12px;
         }
 
         .contact-box i {
             color: var(--primary);
             margin-top: 4px;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
         }
 
         .phone-highlight {
@@ -184,6 +194,10 @@
             font-weight: 700;
             font-size: 1.15rem;
             text-decoration: none;
+        }
+
+        .phone-highlight:hover {
+            text-decoration: underline;
         }
 
         /* NÚT LIÊN HỆ NỔI (FLOAT ACTIONS) */
@@ -206,7 +220,7 @@
             justify-content: center;
             color: white;
             text-decoration: none;
-            font-size: 24px;
+            font-size: 22px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.25);
             transition: transform 0.2s ease;
         }
@@ -223,7 +237,7 @@
         .btn-zalo {
             background-color: #0068ff;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 13px;
             border: 2px solid white;
         }
 
@@ -241,7 +255,7 @@
             100% { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0); }
         }
 
-        /* FOOTER & VISITOR COUNTER */
+        /* FOOTER & BỘ ĐẾM */
         footer {
             background-color: #1a202c;
             color: #cbd5e1;
@@ -251,7 +265,7 @@
         }
 
         .counter-container {
-            margin-top: 12px;
+            margin-top: 14px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -267,11 +281,11 @@
 
         /* RESPONSIVE */
         @media (max-width: 600px) {
-            header h1 { font-size: 1.4rem; }
-            header h2 { font-size: 1rem; }
+            header h1 { font-size: 1.35rem; }
+            header h2 { font-size: 0.95rem; }
             .section-card { padding: 18px; }
             .floating-contact { right: 12px; bottom: 15px; }
-            .float-btn { width: 46px; height: 46px; font-size: 20px; }
+            .float-btn { width: 46px; height: 46px; font-size: 19px; }
         }
     </style>
 </head>
@@ -290,11 +304,14 @@
 
     <div class="container">
 
-        <!-- GIỚI THIỆU -->
+        <!-- GIỚI THIỆU CHUẨN SEO -->
         <section class="section-card">
             <h2 class="section-title"><i class="fa-solid fa-hospital-user"></i> Giới Thiệu</h2>
             <p class="about-text">
-                Phòng khám do <strong>Bác sĩ Chuyên khoa II Nguyễn Văn Hùng</strong> trực tiếp phụ trách với hơn 20 năm kinh nghiệm trong lĩnh vực Sản - Phụ khoa. Chúng tôi luôn chú trọng ứng dụng các trang thiết bị y tế hiện đại, kỹ thuật siêu âm chẩn đoán tiên tiến cùng các giải pháp giảm đau an toàn, hiệu quả nhằm mang lại sự nhẹ nhàng, an tâm tuyệt đối cho mẹ bầu và chị em phụ nữ.
+                Tọa lạc tại trung tâm TP. Long Xuyên, <strong>Phòng khám Phụ sản Bác sĩ Văn Hùng</strong> do <strong>BSCKII Nguyễn Văn Hùng</strong> trực tiếp phụ trách với hơn 20 năm kinh nghiệm chuyên sâu trong lĩnh vực Sản - Phụ khoa. Phòng khám tự hào là địa chỉ uy tín đồng hành cùng hàng ngàn mẹ bầu và chị em phụ nữ qua các dịch vụ: <strong>khám thai định kỳ</strong>, <strong>siêu âm màu kỹ thuật cao (2D/3D/4D/Doppler)</strong> tầm soát dị tật thai nhi, <strong>khám và điều trị toàn diện bệnh lý phụ khoa</strong>, cùng các giải pháp <strong>kế hoạch hóa gia đình</strong> an toàn, nhẹ nhàng và hiệu quả.
+            </p>
+            <p class="about-text">
+                Với trang thiết bị chẩn đoán hình ảnh hiện đại, quy trình thăm khám tận tâm, riêng tư và các biện pháp giảm đau tối ưu, chúng tôi cam kết mang lại sự an tâm tuyệt đối và trải nghiệm y tế chất lượng nhất cho từng khách hàng.
             </p>
         </section>
 
@@ -303,44 +320,44 @@
             <h2 class="section-title"><i class="fa-solid fa-stethoscope"></i> Dịch Vụ Chuyên Khoa</h2>
             
             <div class="services-grid">
-                <!-- Mục 1 -->
+                <!-- Thẻ 1 -->
                 <div class="service-item">
                     <h3><i class="fa-solid fa-baby"></i> Chẩn Đoán & Quản Lý Thai</h3>
                     <ul>
-                        <li>Khám thai định kỳ theo từng giai đoạn</li>
-                        <li>Đo độ mờ da gáy, sàng lọc dị tật trước sinh</li>
-                        <li>Theo dõi sự phát triển thai và chỉ số Doppler</li>
+                        <li>Khám và quản lý thai kỳ trọn gói, định kỳ</li>
+                        <li>Đo độ mờ da gáy, tầm soát dị tật trước sinh</li>
+                        <li>Theo dõi sự phát triển của thai nhi từng tuần tuổi</li>
                         <li>Tư vấn dinh dưỡng và chăm sóc thai kỳ an toàn</li>
                     </ul>
                 </div>
 
-                <!-- Mục 2 -->
+                <!-- Thẻ 2 -->
                 <div class="service-item">
                     <h3><i class="fa-solid fa-wave-square"></i> Siêu Âm Kỹ Thuật Cao</h3>
                     <ul>
                         <li>Siêu âm 2D chẩn đoán và theo dõi định kỳ</li>
                         <li>Siêu âm thai 3D / 4D / 5D dựng hình thai nhi</li>
-                        <li>Siêu âm màu Doppler tầm soát tim thai, mạch máu</li>
+                        <li>Siêu âm màu Doppler đánh giá tim thai, mạch máu</li>
                         <li>Siêu âm phụ khoa, tầm soát tử cung - phần phụ</li>
                     </ul>
                 </div>
 
-                <!-- Mục 3 -->
+                <!-- Thẻ 3 -->
                 <div class="service-item">
                     <h3><i class="fa-solid fa-venus"></i> Khám & Điều Trị Phụ Khoa</h3>
                     <ul>
-                        <li>Khám, soi cổ tử cung và tầm soát ung thư</li>
+                        <li>Khám, soi cổ tử cung và tầm soát ung thư sớm</li>
                         <li>Điều trị viêm nhiễm phụ khoa, nấm ngứa, lộ tuyến</li>
                         <li>Rối loạn kinh nguyệt, rong kinh, u xơ tử cung</li>
-                        <li>Áp dụng các biện pháp giảm đau, an toàn, hiệu quả</li>
+                        <li>Áp dụng các giải pháp giảm đau an toàn, nhẹ nhàng</li>
                     </ul>
                 </div>
 
-                <!-- Mục 4 -->
+                <!-- Thẻ 4 -->
                 <div class="service-item">
                     <h3><i class="fa-solid fa-heart-pulse"></i> Kế Hoạch Hóa Gia Đình</h3>
                     <ul>
-                        <li>Tư vấn và đặt/tháo vòng tránh thai an toàn</li>
+                        <li>Tư vấn và thực hiện đặt / tháo vòng tránh thai</li>
                         <li>Tư vấn cấy que tránh thai thế hệ mới</li>
                         <li>Tư vấn sức khỏe sinh sản tiền hôn nhân</li>
                     </ul>
@@ -348,7 +365,7 @@
             </div>
         </section>
 
-        <!-- LIÊN HỆ -->
+        <!-- LIÊN HỆ & LỊCH KHÁM -->
         <section class="section-card">
             <h2 class="section-title"><i class="fa-solid fa-location-dot"></i> Thông Tin Liên Hệ & Lịch Khám</h2>
             <div class="contact-grid">
@@ -360,7 +377,7 @@
                     </p>
                     <p>
                         <i class="fa-solid fa-phone"></i>
-                        <span><strong>Hotline / Tư vấn:</strong> 
+                        <span><strong>Hotline tư vấn & đặt hẹn:</strong><br>
                             <a href="tel:0868452999" class="phone-highlight">0868 452 999</a> &nbsp;|&nbsp; 
                             <a href="tel:0385577666" class="phone-highlight">0385 577 666</a>
                         </span>
@@ -370,8 +387,8 @@
                     <p>
                         <i class="fa-solid fa-clock"></i>
                         <span><strong>Thời gian làm việc:</strong><br>
-                        Khám các ngày trong tuần (kể cả Thứ 7 & Chủ Nhật).<br>
-                        <em>Khuyến khích liên hệ đặt hẹn trước qua Zalo hoặc Hotline để tránh chờ đợi.</em></span>
+                        Phục vụ các ngày trong tuần (kể cả Thứ 7 và Chủ Nhật).<br>
+                        <em>Khuyến khích liên hệ đặt lịch trước qua Zalo hoặc Hotline để không phải chờ đợi lâu.</em></span>
                     </p>
                 </div>
             </div>
@@ -381,35 +398,34 @@
 
     <!-- CỤM NÚT LIÊN HỆ NỔI (CALL / ZALO / TELEGRAM / MESSENGER) -->
     <div class="floating-contact">
-        <!-- Nút Gọi Điện -->
+        <!-- Gọi điện thoại -->
         <a href="tel:0868452999" class="float-btn btn-call" title="Gọi điện tư vấn">
             <i class="fa-solid fa-phone"></i>
         </a>
 
-        <!-- Nút Zalo (Nhập SĐT Zalo của bạn) -->
+        <!-- Zalo -->
         <a href="https://zalo.me/0868452999" target="_blank" class="float-btn btn-zalo" title="Chat Zalo">
             Zalo
         </a>
 
-        <!-- Nút Messenger (Thay yourfanpage bằng username trang Facebook của bạn) -->
+        <!-- Messenger (Thay bacsyvanhung bằng username Facebook của bạn nếu khác) -->
         <a href="https://m.me/bacsyvanhung" target="_blank" class="float-btn btn-messenger" title="Nhắn tin Messenger">
             <i class="fa-brands fa-facebook-messenger"></i>
         </a>
 
-        <!-- Nút Telegram (Thay your_telegram_username bằng username Telegram của bạn) -->
+        <!-- Telegram (Thay bacsyvanhung bằng username Telegram của bạn nếu khác) -->
         <a href="https://t.me/bacsyvanhung" target="_blank" class="float-btn btn-telegram" title="Chat Telegram">
             <i class="fa-brands fa-telegram"></i>
         </a>
     </div>
 
-    <!-- FOOTER & VISITOR COUNTER -->
+    <!-- FOOTER & BỘ ĐẾM KHÁCH -->
     <footer>
         <p>&copy; 2026 Phòng Khám Phụ Sản - Bác Sĩ Chuyên Khoa II Nguyễn Văn Hùng. All rights reserved.</p>
         
-        <!-- BỘ ĐẾM KHÁCH GHÉ THĂM TỰ ĐỘNG -->
+        <!-- BỘ ĐẾM KHÁCH TỰ ĐỘNG THEO TÊN MIỀN -->
         <div class="counter-container">
             <i class="fa-solid fa-eye"></i> Lượt truy cập: 
-            <!-- Dịch vụ đếm hits.seeyoufarm miễn phí, gắn theo tên miền bacsyvanhung.com -->
             <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fbacsyvanhung.com&count_bg=%23008080&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Kh%C3%A1ch&edge_flat=false" alt="Lượt truy cập">
         </div>
     </footer>
