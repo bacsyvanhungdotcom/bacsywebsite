@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tra Cứu Kết Quả Siêu Âm - Phòng Khám BS.CKII Nguyễn Văn Hùng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #008080;
+            --primary-dark: #005f5f;
+            --primary-light: #e6f7f7;
+            --text-main: #2d3748;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --radius: 12px;
+            --shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            padding: 15px;
+        }
+        .container {
+            max-width: 580px;
+            margin: 20px auto;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--primary);
+            overflow: hidden;
+            padding: 25px 20px;
+            text-align: center;
+        }
+        .header-title {
+            color: var(--primary-dark);
+            font-size: 1.35rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .header-sub {
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+        .code-box {
+            background: var(--primary-light);
+            border: 2px dashed var(--primary);
+            border-radius: 10px;
+            padding: 16px;
+            margin: 20px 0;
+        }
+        .code-label {
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .code-value {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #d90429;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            word-break: break-all;
+        }
+        .info-card {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: left;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .info-card p {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .info-card i {
+            color: var(--primary);
+            margin-top: 4px;
+        }
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: 0.2s ease;
+        }
+        .btn-zalo {
+            background-color: #0068ff;
+            color: white;
+        }
+        .btn-call {
+            background-color: #e53e3e;
+            color: white;
+        }
+        .btn-home {
+            background-color: #e2e8f0;
+            color: #334155;
+        }
+        .btn:hover {
+            opacity: 0.92;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="header-title">Phòng Khám Phụ Sản</h1>
+        <p class="header-sub">BS.CKII NGUYỄN VĂN HÙNG</p>
+
+        <div class="code-box">
+            <div class="code-label"><i class="fa-solid fa-qrcode"></i> Mã Hồ Sơ Bệnh Nhân</div>
+            <div class="code-value" id="ma-benh-nhan">ĐANG TẢI...</div>
+        </div>
+
+        <div class="info-card">
+            <p><i class="fa-solid fa-circle-check"></i> <span>Hồ sơ siêu âm của Quý khách đã được lưu trữ an toàn trên hệ thống nội bộ của phòng khám.</span></p>
+            <p><i class="fa-solid fa-images"></i> <span>Để nhận <strong>file ảnh màu / video siêu âm 4D, 5D độ nét cao</strong> về điện thoại, Quý khách vui lòng nhấn nút bên dưới để gửi mã hồ sơ qua Zalo phòng khám.</span></p>
+        </div>
+
+        <div class="btn-group">
+            <a id="link-zalo" href="https://zalo.me/0868452999" target="_blank" class="btn btn-zalo">
+                <i class="fa-solid fa-comment-dots"></i> Nhắn Zalo Nhận Ảnh Siêu Âm
+            </a>
+            <a href="tel:0868452999" class="btn btn-call">
+                <i class="fa-solid fa-phone"></i> Hotline: 0868 452 999
+            </a>
+            <a href="https://bacsyvanhung.com" class="btn btn-home">
+                <i class="fa-solid fa-house"></i> Về Trang Chủ Phòng Khám
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Tự động đọc mã bệnh nhân từ đường dẫn ?ma=BN...
+        const urlParams = new URLSearchParams(window.location.search);
+        const maBN = urlParams.get('ma') || 'CHƯA XÁC ĐỊNH';
+        document.getElementById('ma-benh-nhan').innerText = maBN;
+    </script>
+</body>
+</html>
