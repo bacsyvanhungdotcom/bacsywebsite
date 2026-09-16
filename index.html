@@ -80,6 +80,44 @@
             color: #d1fae5;
         }
 
+        /* BANNER NÚT TRA CỨU NHANH */
+        .lookup-banner {
+            background: #ffffff;
+            border: 2px dashed var(--primary);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            margin: 20px auto -10px auto;
+            max-width: 1050px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            box-shadow: var(--shadow);
+        }
+        .lookup-banner-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-lookup-now {
+            background: #d90429;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(217, 4, 41, 0.25);
+            transition: 0.2s;
+        }
+        .btn-lookup-now:hover { background: #b71c1c; transform: translateY(-2px); }
+
         /* KHUNG CHÍNH */
         .container {
             max-width: 1050px;
@@ -147,10 +185,7 @@
             gap: 8px;
         }
 
-        .service-item ul {
-            list-style: none;
-        }
-
+        .service-item ul { list-style: none; }
         .service-item ul li {
             position: relative;
             padding-left: 20px;
@@ -158,7 +193,6 @@
             font-size: 0.95rem;
             color: #4a5568;
         }
-
         .service-item ul li::before {
             content: "✔";
             position: absolute;
@@ -167,6 +201,103 @@
             font-weight: bold;
             font-size: 0.85rem;
         }
+
+        /* GÓC CHIA SẺ & VIDEO BÁC SĨ */
+        .media-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 15px;
+        }
+        @media (max-width: 768px) {
+            .media-container { grid-template-columns: 1fr; }
+        }
+
+        .video-box {
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+        .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-responsive iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+        }
+        .btn-youtube-channel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            background: #cc0000;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        .btn-youtube-channel:hover { background: #990000; }
+
+        /* BÀI VIẾT & CÂU CHUYỆN */
+        .story-card {
+            background: var(--bg-light);
+            border-radius: 10px;
+            padding: 18px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 16px;
+        }
+        .story-date {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .story-title {
+            font-size: 1.15rem;
+            color: var(--primary-dark);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .story-desc {
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+        .share-bar {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 10px;
+        }
+        .btn-share {
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: white;
+            transition: 0.2s;
+        }
+        .btn-share-fb { background: #1877f2; }
+        .btn-share-zl { background: #0068ff; }
+        .btn-share-copy { background: #64748b; }
+        .btn-share:hover { opacity: 0.9; }
 
         /* LIÊN HỆ & LỊCH LÀM VIỆC */
         .contact-grid {
@@ -195,10 +326,7 @@
             font-size: 1.15rem;
             text-decoration: none;
         }
-
-        .phone-highlight:hover {
-            text-decoration: underline;
-        }
+        .phone-highlight:hover { text-decoration: underline; }
 
         /* NÚT LIÊN HỆ NỔI (FLOAT ACTIONS) */
         .floating-contact {
@@ -224,30 +352,20 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.25);
             transition: transform 0.2s ease;
         }
-
-        .float-btn:hover {
-            transform: scale(1.1);
-        }
+        .float-btn:hover { transform: scale(1.1); }
 
         .btn-call {
             background-color: #e53e3e;
             animation: pulse-red 2s infinite;
         }
-
         .btn-zalo {
             background-color: #0068ff;
             font-weight: bold;
             font-size: 13px;
             border: 2px solid white;
         }
-
-        .btn-messenger {
-            background: linear-gradient(135deg, #00B2FE 0%, #006AFF 50%, #A033FF 100%);
-        }
-
-        .btn-telegram {
-            background-color: #229ED9;
-        }
+        .btn-messenger { background: linear-gradient(135deg, #00B2FE 0%, #006AFF 50%, #A033FF 100%); }
+        .btn-telegram { background-color: #229ED9; }
 
         @keyframes pulse-red {
             0% { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.7); }
@@ -274,19 +392,6 @@
             border-radius: 20px;
             font-size: 0.88rem;
         }
-
-        .counter-container img {
-            vertical-align: middle;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.35rem; }
-            header h2 { font-size: 0.95rem; }
-            .section-card { padding: 18px; }
-            .floating-contact { right: 12px; bottom: 15px; }
-            .float-btn { width: 46px; height: 46px; font-size: 19px; }
-        }
     </style>
 </head>
 <body>
@@ -301,6 +406,19 @@
         <h1>Phòng Khám Phụ Sản</h1>
         <h2>Bác Sĩ Chuyên Khoa II Nguyễn Văn Hùng</h2>
     </header>
+
+    <!-- BANNER TRA CỨU KẾT QUẢ ONLINE DÀNH CHO BỆNH NHÂN -->
+    <div class="container" style="margin-top: 20px; margin-bottom: -15px;">
+        <div class="lookup-banner">
+            <div class="lookup-banner-text">
+                <i class="fa-solid fa-qrcode" style="font-size: 1.5rem; color: #008080;"></i>
+                <span>Bệnh nhân có mã hồ sơ hoặc quét mã QR trên phiếu khám?</span>
+            </div>
+            <a href="tra-cuu.html" class="btn-lookup-now">
+                <i class="fa-solid fa-file-medical"></i> TRA CỨU ẢNH & KẾT QUẢ ONLINE
+            </a>
+        </div>
+    </div>
 
     <div class="container">
 
@@ -320,7 +438,6 @@
             <h2 class="section-title"><i class="fa-solid fa-stethoscope"></i> Dịch Vụ Chuyên Khoa</h2>
             
             <div class="services-grid">
-                <!-- Thẻ 1 -->
                 <div class="service-item">
                     <h3><i class="fa-solid fa-baby"></i> Chẩn Đoán & Quản Lý Thai</h3>
                     <ul>
@@ -331,7 +448,6 @@
                     </ul>
                 </div>
 
-                <!-- Thẻ 2 -->
                 <div class="service-item">
                     <h3><i class="fa-solid fa-wave-square"></i> Siêu Âm Kỹ Thuật Cao</h3>
                     <ul>
@@ -342,7 +458,6 @@
                     </ul>
                 </div>
 
-                <!-- Thẻ 3 -->
                 <div class="service-item">
                     <h3><i class="fa-solid fa-venus"></i> Khám & Điều Trị Phụ Khoa</h3>
                     <ul>
@@ -353,7 +468,6 @@
                     </ul>
                 </div>
 
-                <!-- Thẻ 4 -->
                 <div class="service-item">
                     <h3><i class="fa-solid fa-heart-pulse"></i> Kế Hoạch Hóa Gia Đình</h3>
                     <ul>
@@ -365,70 +479,25 @@
             </div>
         </section>
 
-        <!-- LIÊN HỆ & LỊCH KHÁM -->
-        <section class="section-card">
-            <h2 class="section-title"><i class="fa-solid fa-location-dot"></i> Thông Tin Liên Hệ & Lịch Khám</h2>
-            <div class="contact-grid">
-                <div class="contact-box">
-                    <p>
-                        <i class="fa-solid fa-map-pin"></i>
-                        <span><strong>Địa chỉ:</strong> 205 Lý Thái Tổ, Phường Mỹ Long, TP. Long Xuyên, Tỉnh An Giang.<br>
-                        <em>(Đường đi phà An Hòa, đối diện Bách Hóa Xanh, gần ngân hàng VietinBank)</em></span>
-                    </p>
-                    <p>
-                        <i class="fa-solid fa-phone"></i>
-                        <span><strong>Hotline tư vấn & đặt hẹn:</strong><br>
-                            <a href="tel:0868452999" class="phone-highlight">0868 452 999</a> &nbsp;|&nbsp; 
-                            <a href="tel:0385577666" class="phone-highlight">0385 577 666</a>
-                        </span>
-                    </p>
+        <!-- GÓC CHIA SẺ & VIDEO BÁC SĨ (KẾT HỢP YOUTUBE + SHARE BÀI VIẾT) -->
+        <section class="section-card" id="chia-se">
+            <h2 class="section-title"><i class="fa-brands fa-youtube" style="color: #ef4444;"></i> Video & Góc Chia Sẻ Y Khoa</h2>
+            
+            <div class="media-container">
+                <!-- Cột 1: Video Kênh YouTube Bác Sĩ -->
+                <div>
+                    <div class="video-box">
+                        <div class="video-responsive">
+                            <iframe src="https://www.youtube.com/embed/tKtF2AXT1yI" title="Phòng khám sản phụ khoa BSCKII Nguyễn Văn Hùng" allowfullscreen></iframe>
+                        </div>
+                        <a href="https://www.youtube.com/channel/UCUth2ie7Q-8J0cDuJ1HLZEw" target="_blank" class="btn-youtube-channel">
+                            <i class="fa-brands fa-youtube" style="font-size: 1.2rem;"></i> Đăng Ký Kênh YouTube Bác Sĩ Văn Hùng
+                        </a>
+                    </div>
                 </div>
-                <div class="contact-box">
-                    <p>
-                        <i class="fa-solid fa-clock"></i>
-                        <span><strong>Thời gian làm việc:</strong><br>
-                        Phục vụ các ngày trong tuần (kể cả Thứ 7 và Chủ Nhật).<br>
-                        <em>Khuyến khích liên hệ đặt lịch trước qua Zalo hoặc Hotline để không phải chờ đợi lâu.</em></span>
-                    </p>
-                </div>
-            </div>
-        </section>
 
-    </div>
-
-    <!-- CỤM NÚT LIÊN HỆ NỔI (CALL / ZALO / TELEGRAM / MESSENGER) -->
-    <div class="floating-contact">
-        <!-- Gọi điện thoại -->
-        <a href="tel:0868452999" class="float-btn btn-call" title="Gọi điện tư vấn">
-            <i class="fa-solid fa-phone"></i>
-        </a>
-
-        <!-- Zalo -->
-        <a href="https://zalo.me/0868452999" target="_blank" class="float-btn btn-zalo" title="Chat Zalo">
-            Zalo
-        </a>
-
-        <!-- Messenger (Thay bacsyvanhung bằng username Facebook của bạn nếu khác) -->
-        <a href="https://m.me/bacsyvanhung" target="_blank" class="float-btn btn-messenger" title="Nhắn tin Messenger">
-            <i class="fa-brands fa-facebook-messenger"></i>
-        </a>
-
-        <!-- Telegram (Thay bacsyvanhung bằng username Telegram của bạn nếu khác) -->
-        <a href="https://t.me/bacsyvanhung" target="_blank" class="float-btn btn-telegram" title="Chat Telegram">
-            <i class="fa-brands fa-telegram"></i>
-        </a>
-    </div>
-
-    <!-- FOOTER & BỘ ĐẾM KHÁCH -->
-    <footer>
-        <p>&copy; 2026 Phòng Khám Phụ Sản - Bác Sĩ Chuyên Khoa II Nguyễn Văn Hùng. All rights reserved.</p>
-        
-        <!-- BỘ ĐẾM KHÁCH TỰ ĐỘNG THEO TÊN MIỀN -->
-        <div class="counter-container">
-            <i class="fa-solid fa-eye"></i> Lượt truy cập: 
-            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fbacsyvanhung.com&count_bg=%23008080&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Kh%C3%A1ch&edge_flat=false" alt="Lượt truy cập">
-        </div>
-    </footer>
-
-</body>
-</html>
+                <!-- Cột 2: Danh sách bài viết & câu chuyện -->
+                <div>
+                    <!-- Bài 1 -->
+                    <div class="story-card">
+                        <div
