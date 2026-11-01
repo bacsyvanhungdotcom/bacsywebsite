@@ -30,7 +30,7 @@ body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-heigh
 .gallery-title { font-size: 1.2rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 12px; }
 .img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; }
 .img-item { background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15); text-align: center; }
-.img-item img { width: 100%; height: auto; display: block; }
+.img-item img, .img-item video { width: 100%; height: auto; display: block; }
 .btn-download { display: block; padding: 10px; background: #334155; color: white; text-decoration: none; font-weight: 700; font-size: 0.95rem; }
 .error-msg { color: #dc2626; font-size: 1.05rem; font-weight: 700; margin-top: 12px; display: none; background: #fee2e2; padding: 10px; border-radius: 8px; }
 </style>
@@ -44,7 +44,7 @@ body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-heigh
 <div class="auth-card">
 <div class="input-group">
 <label><i class="fa-solid fa-qrcode"></i> Mã Hồ Sơ Bệnh Nhân:</label>
-<input type="text" id="inp-ma" placeholder="Ví dụ: 261031-185842">
+<input type="text" id="inp-ma" placeholder="Ví dụ: 261101-125400">
 </div>
 <div class="input-group">
 <label><i class="fa-solid fa-phone"></i> Số Điện Thoại Đăng Ký (Mật khẩu):</label>
@@ -70,18 +70,30 @@ body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-heigh
 </div>
 </div>
 <div class="image-gallery">
-<div class="gallery-title"><i class="fa-solid fa-images"></i> HÌNH ẢNH SIÊU ÂM MÀU / 4D / 5D:</div>
+<div class="gallery-title"><i class="fa-solid fa-images"></i> HÌNH ẢNH & VIDEO SIÊU ÂM:</div>
 <div class="img-grid" id="gallery-grid"></div>
 </div>
 </div>
 </div>
 <script>
 const SERVER_URL = "https://server.bacsyvanhung.com";
+(function autoReadQR() {
 const urlParams = new URLSearchParams(window.location.search);
-const maParam = urlParams.get('ma') || urlParams.get('id') || '';
-if (maParam) {
-document.getElementById('inp-ma').value = maParam;
+let ma = urlParams.get('ma') || urlParams.get('id') || urlParams.get('code') || urlParams.get('ma_ho_so') || '';
+const sdt = urlParams.get('sdt') || urlParams.get('phone') || '';
+if (!ma && window.location.hash) {
+ma = window.location.hash.replace('#', '').trim();
 }
+if (!ma) {
+const m = window.location.href.match(/(\d{6}-\d{3,6}(?:-[A-Za-z0-9]+)?)/);
+if (m) ma = m[1];
+}
+if (ma) document.getElementById('inp-ma').value = ma.trim();
+if (sdt) document.getElementById('inp-sdt').value = sdt.trim();
+if (ma && sdt) {
+setTimeout(xacThucXemKetQua, 300);
+}
+})();
 async function xacThucXemKetQua() {
 const ma = document.getElementById('inp-ma').value.trim();
 const sdt = document.getElementById('inp-sdt').value.trim();
@@ -89,6 +101,8 @@ const errBox = document.getElementById('error-box');
 const resArea = document.getElementById('result-area');
 if (!ma) {
 errBox.style.display = 'block';
+errBox.style.background = '#fee2e2';
+errBox.style.color = '#dc2626';
 errBox.innerText = 'Vui lòng nhập Mã hồ sơ bệnh nhân!';
 return;
 }
@@ -97,7 +111,8 @@ errBox.style.background = '#e0f2fe';
 errBox.style.color = '#0369a1';
 errBox.innerText = 'Đang tải kết quả từ máy chủ phòng khám...';
 try {
-const response = await fetch(SERVER_URL + '/api/tra-cuu?ma=' + encodeURIComponent(ma) + '&sdt=' + encodeURIComponent(sdt));
+const apiUrl = SERVER_URL + '/api/tra-cuu?ma=' + encodeURIComponent(ma) + '&sdt=' + encodeURIComponent(sdt) + '&t=' + Date.now();
+const response = await fetch(apiUrl, { method: 'GET', mode: 'cors', cache: 'no-store' });
 const data = await response.json();
 if (data.status === 'success') {
 errBox.style.display = 'none';
@@ -113,6 +128,16 @@ document.getElementById('res-recom').innerText = p.recommendation || 'Theo dõi 
 const grid = document.getElementById('gallery-grid');
 grid.innerHTML = '';
 const imgs = data.images || p.images || [];
+const vids = data.videos || p.videos || [];
+if (vids.length > 0) {
+vids.forEach(function(vidUri, idx) {
+const vidUrl = vidUri.startsWith('http') ? vidUri : (SERVER_URL + vidUri);
+const item = document.createElement('div');
+item.className = 'img-item';
+item.innerHTML = '<video src="' + vidUrl + '" controls playsinline></video><a href="' + vidUrl + '" download class="btn-download"><i class="fa-solid fa-video"></i> Tải Video ' + (idx + 1) + ' về máy</a>';
+grid.appendChild(item);
+});
+}
 if (imgs.length > 0) {
 imgs.forEach(function(imgUri, idx) {
 const imgUrl = imgUri.startsWith('http') ? imgUri : (SERVER_URL + imgUri);
@@ -121,7 +146,8 @@ item.className = 'img-item';
 item.innerHTML = '<a href="' + imgUrl + '" target="_blank"><img src="' + imgUrl + '" alt="Ảnh siêu âm ' + (idx + 1) + '"></a><a href="' + imgUrl + '" download class="btn-download"><i class="fa-solid fa-download"></i> Tải ảnh ' + (idx + 1) + ' về máy</a>';
 grid.appendChild(item);
 });
-} else {
+}
+if (imgs.length === 0 && vids.length === 0) {
 grid.innerHTML = '<p style="color: #64748b; font-style: italic;">(Ca khám này không lưu kèm file ảnh siêu âm trên hệ thống).</p>';
 }
 resArea.style.display = 'block';
@@ -134,7 +160,7 @@ resArea.style.display = 'none';
 } catch (err) {
 errBox.style.background = '#fee2e2';
 errBox.style.color = '#dc2626';
-errBox.innerText = 'Không thể kết nối đến máy chủ phòng khám. Vui lòng kiểm tra lại mạng!';
+errBox.innerText = 'Không thể kết nối đến máy chủ phòng khám (' + (err.message || 'Lỗi mạng') + ')';
 }
 }
 </script>
